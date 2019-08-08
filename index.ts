@@ -6,7 +6,12 @@ export class FrontendStack extends cdk.Stack {
     constructor(app: cdk.App, id: string) {
         super(app, id);
 
-        new StaticWebsite(this, "CoolDotCom");
+        new StaticWebsite(this, "FooCJDev", {
+            domain: {
+                operationalDoman: "foo.ops.cjpowered.com",
+                vanityDomain: "foo.cj.dev",
+            }
+        });
 
     }
 }
