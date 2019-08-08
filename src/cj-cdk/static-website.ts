@@ -6,7 +6,6 @@ import { Certificate, ValidationMethod } from '@aws-cdk/aws-certificatemanager';
 export interface DomainProps {
     operationalDoman: string,
     vanityDomain?: string,
-    validation?: {[domain: string]: string}
 }
 
 export interface StaticWebsiteProps {
@@ -35,7 +34,6 @@ class WebsiteCertificate extends Construct {
             new Certificate(this, "Cert", {
                 ...namesConfig,
                 validationMethod: ValidationMethod.DNS,
-                validationDomains: props.validation,
             });
         }
 
